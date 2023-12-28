@@ -1,0 +1,23 @@
+<div class="container">
+<h1>{{title}}</h1>
+
+<ul>
+  <li *ngFor="let file of files" (click)="openFile(file.url)">{{file.name}}</li>
+</ul>
+<div>
+<button class="btn button1" (click)="play()">Play</button>
+<button class="btn button1" (click)="pause()">Pause</button>
+<button class="btn button1" (click)="stop()">Stop</button>
+</div>
+<br><br>
+<div>
+  <span>Time:- {{currentTime}}</span>
+  <input type="range" min="0" max="duration" [value]="seek" (input)="seekTime($event)">
+  <span>{{duration}}</span>
+</div>
+<br>
+<div>
+  <span>Volume:- </span>
+<input type="range" min="0" max="1" step="0.01" value="0.5" (input)="setVolume($event)">
+</div>
+</div>
